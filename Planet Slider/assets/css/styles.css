@@ -1,0 +1,125 @@
+@import url('https://css.gg/arrow-left.css');
+
+html * {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+body {
+    background-image: url("../images/stars.jpg" );
+    background-repeat: repeat;
+    background-position: 50% 50%;
+    height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+
+
+
+
+i {
+	position: relative;
+	display: block;
+	width: 1280px;
+	height: 800px;
+	overflow: hidden;
+	border-radius: 5px;
+    
+}
+
+i:before, i:after {
+	content: '≪';
+	position: absolute;
+	font-size: 1.5rem;
+	top: 50%;
+	left: 1rem;
+	z-index: 2;
+	width: 2rem;
+	height: 2rem;
+	background: #333333;
+	color: goldenrod;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	pointer-events: none;
+}
+
+i:after {
+	content: '≫';
+	left: auto;
+	right: 1rem;
+	font-size: 1.5rem;
+}
+
+
+input {
+	appearance: none;
+	-ms-appearance: none;
+	-webkit-appearance: none;
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 5px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	transform: translateX(100%);
+	transition: transform ease-in-out 400ms;
+	z-index: 1;
+}
+
+input:focus {
+	outline: none;
+}
+
+input:after {
+	content: attr(title);
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	color: white;
+	padding: .5rem;
+	font-size: 2rem;
+	border-radius: 5px;
+}
+
+input:not(checked):before {
+	content: '';
+	position: absolute;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	top: 50%;
+	left: calc(-100% + 1rem);
+}
+
+input:checked:before {
+	display: none;
+	left: 1rem;
+}
+
+input:checked {
+	transform: translateX(0);
+	pointer-event: none;
+	z-index: 0;
+	box-shadow: -5px 10px 20px -15px rgba(0,0,0,1);
+}
+
+input:checked + input:before {
+	left: -3rem;
+}
+
+input:checked + input ~ input:before {
+	display: none;
+}
+
+
+
